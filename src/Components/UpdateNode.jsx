@@ -1,23 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useReactFlow } from 'reactflow';
+import { useState, useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
-const UpdateNode = ({
-  selectedNode,
-  setNodeSelected,
-  setNodes,
-  setNewNodeLabel,
-}) => {
-  const [nodeName, setNodeName] = useState(selectedNode.data['label']);
-  // const reactFlowInstance = useReactFlow();
-  // console.log(reactFlowInstance.getNodes());
+const UpdateNode = ({ selectedNode, setNodeSelected, setNodes }) => {
+  const [nodeName, setNodeName] = useState(selectedNode.data["label"]);
   let id = selectedNode.id;
 
   useEffect(() => {
-    // console.log(selectedNode.data['label'], setNodes);
-    // const nodes = reactFlowInstance.getNodes();
-
-    setNodeName(selectedNode.data['label']);
+    setNodeName(selectedNode.data["label"]);
   }, [id]);
 
   // update the node on click of the save changes button
@@ -44,14 +33,12 @@ const UpdateNode = ({
   };
 
   return (
-    // <aside>
     <>
-      {/* <div style={{ width: `100%`, height: 2, background: 'grey' }}></div> */}
       <div className="update">
         <div className="back">
           <span
             className="material-symbols-outlined"
-            style={{ marginRight: 10, cursor: 'pointer' }}
+            style={{ marginRight: 10, cursor: "pointer" }}
             onClick={mainSidebar}
           >
             arrow_back
@@ -59,7 +46,7 @@ const UpdateNode = ({
           <h2 style={{ paddingLeft: 50, margin: 0 }}>Message</h2>
         </div>
       </div>
-      <div style={{ width: `100%`, height: 2, background: 'grey' }}></div>
+      <div style={{ width: `100%`, height: 2, background: "grey" }}></div>
 
       <div className="update">
         <h3>Text:</h3>
@@ -69,15 +56,12 @@ const UpdateNode = ({
           value={nodeName}
           onChange={(evt) => {
             setNodeName(evt.target.value);
-            // setNewNodeLabel(evt.target.value);
           }}
           style={{ marginBottom: 15, borderRadius: 5 }}
         />
       </div>
-      <div style={{ width: `100%`, height: 2, background: 'grey' }}></div>
+      <div style={{ width: `100%`, height: 2, background: "grey" }}></div>
     </>
-
-    // </aside>
   );
 };
 
